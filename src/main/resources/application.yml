@@ -1,0 +1,43 @@
+
+
+# logger
+logging:
+  config: classpath:log/logback-spring.xml
+
+
+# 配置datasource和mybatis相关配置
+#	mapper xml 文件地址
+mybatis:
+  mapper-locations: classpath:dev/dulred/demo/mapper/*.xml
+#	数据库url	
+spring:
+#	数据库用户名
+  datasource:
+    username: root
+    url: jdbc:mysql://localhost:3306/test?characterEncoding=utf8&serverTimezone=UTC
+#	数据库密码
+    password: 1933YANsian1500
+#	数据库驱动	
+    driver-class-name: com.mysql.cj.jdbc.Driver
+
+
+#spring mvc
+server:
+  port: 8080 # web服务端口号
+  servlet:
+    multipart:
+      enabled: true # 启用文件上传
+      location: # 上传文件临时保存位置
+      max-file-size: 50MB # 单个文件上传最大大小限制
+      max-request-size: 100MB # 单次请求主体最大大小限制
+  mvc:
+    format:
+      date: yyyy-MM-dd # 日期格式
+      date-time: yyyy-MM-dd HH:mm:ss # 日期时间格式
+      time: HH:mm:ss # 时间格式
+    servlet:
+      path: / # servlet路径
+      static-path-pattern: # 匹配静态资源路径
+    view:
+      prefix: # view前缀
+      suffix: # view后缀，如：.jsp
